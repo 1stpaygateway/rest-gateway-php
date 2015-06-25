@@ -194,6 +194,27 @@ class Blaze{
         if ($this->status >= 400 && $this->status <= 499){call_user_func ($callBackFailure);}
         if ($this->status >= 200 && $this->status <= 299){call_user_func ($callBackSuccess);}
     }
+    public function createAchCategories($transactionData, $callBackSuccess, $callBackFailure){
+        $apiRequest = $this->apiUrl . "AchCreateCategory";
+        $this->performRequest($transactionData, $apiRequest, $callBackSuccess, $callBackFailure);
+        if ($this->status >= 500 && $this->status <= 599){call_user_func ($callBackFailure);}
+        if ($this->status >= 400 && $this->status <= 499){call_user_func ($callBackFailure);}
+        if ($this->status >= 200 && $this->status <= 299){call_user_func ($callBackSuccess);} 
+    }
+    public function deleteAchCategories($transactionData, $callBackSuccess, $callBackFailure){
+        $apiRequest = $this->apiUrl . "AchDeleteCategory";
+        $this->performRequest($transactionData, $apiRequest, $callBackSuccess, $callBackFailure);
+        if ($this->status >= 500 && $this->status <= 599){call_user_func ($callBackFailure);}
+        if ($this->status >= 400 && $this->status <= 499){call_user_func ($callBackFailure);}
+        if ($this->status >= 200 && $this->status <= 299){call_user_func ($callBackSuccess);} 
+    }
+    public function setupAchStore($transactionData, $callBackSuccess, $callBackFailure){
+        $apiRequest = $this->apiUrl . "AchSetupStore";
+        $this->performRequest($transactionData, $apiRequest, $callBackSuccess, $callBackFailure);
+        if ($this->status >= 500 && $this->status <= 599){call_user_func ($callBackFailure);}
+        if ($this->status >= 400 && $this->status <= 499){call_user_func ($callBackFailure);}
+        if ($this->status >= 200 && $this->status <= 299){call_user_func ($callBackSuccess);} 
+    }
          /*************************************************************************************
                                         VAULT METHODS
          *************************************************************************************/

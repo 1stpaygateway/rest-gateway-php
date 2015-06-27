@@ -1,7 +1,7 @@
 <?php global $apiUrl, $result, $status, $version;
     class Transaction implements JsonSerializable {
         /**
-        * Transaction class: Ties into the PHP JSON Functions & makes them easily available to the Blaze class.
+        * Transaction class: Ties into the PHP JSON Functions & makes them easily available to the RestGateway class.
         * Using the class like so: $a = json_encode(new Transaction($txnarray), JSON_PRETTY_PRINT)
         * Will produce json data that the gateway should understand.
         */
@@ -15,13 +15,13 @@
     }
 
 
-class Blaze{
+class RestGateway{
     /**
-    * Blaze Class: A library of functions used to call the 1stPayBlaze web service.
+    * RestGateway Class: A library of functions used to call the 1stPayBlaze web service.
     * This class is required for every PHP web page making a call to 1stPayBlaze. 
     * This class/file contains all allowed executable methods.
     * Please refer to the gateway documentation web page for specifics on what parameters to use for each call.
-    * Last modified: 6/15/2015
+    * Last modified: 6/27/2015
     * @author Patrick Petrino
     * @version 1.0.0
     *
@@ -358,7 +358,7 @@ class Blaze{
             * 2. Set up cURL request. Note that since this is SOAP we have to pass very specific options.
             * Also note that since cURL is picky, we have to turn off SSL verification. We're still transmitting https, though.
             * 3. Parse the response based on the information returned from the gateway and return it as an array.
-            * The resulting array is stored in $this->result in the Blaze object.
+            * The resulting array is stored in $this->result in the RestGateway object.
             */
         try{
         if ($data == NULL){$data = array(); }
@@ -444,5 +444,5 @@ class Blaze{
         catch (Exception $e){var_dump($e->getMessage());}
         }
 }
-$Blaze = new Blaze();
+$RestGateway = new RestGateway();
 ?>

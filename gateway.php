@@ -30,7 +30,7 @@ class RestGateway{
     public function __construct(){
         global $apiUrl, $result, $status;
         $this->version = "1.0.0";
-        $this->apiUrl = "https://secure.1stpaygateway.net/secure/1stPayClientProxy/Gateway/Transaction/";
+        $this->apiUrl = "https://secure.1stpaygateway.net/secure/RestGW/Gateway/Transaction/";
         $this->result = array();
         $this->status = "";
         //apiUrl, result, status have to be declared globally this way, otherwise not all the functions can see it.

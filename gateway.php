@@ -141,13 +141,6 @@ class RestGateway{
         if ($this->status >= 400 && $this->status <= 499){call_user_func ($callBackFailure);}
         if ($this->status >= 200 && $this->status <= 299){call_user_func ($callBackSuccess);}
     }
-    public function performPartialVoid($transactionData, $callBackSuccess, $callBackFailure){
-        $apiRequest = $this->apiUrl . "VoidPartial";
-        performRequest($transactionData, $apiRequest, $callBackSuccess, $callBackFailure);
-        if ($this->status >= 500 && $this->status <= 599){call_user_func ($callBackFailure);}
-        if ($this->status >= 400 && $this->status <= 499){call_user_func ($callBackFailure);}
-        if ($this->status >= 200 && $this->status <= 299){call_user_func ($callBackSuccess);}
-    }
          /*************************************************************************************
                                         ACH METHODS
          *************************************************************************************/
@@ -325,20 +318,6 @@ class RestGateway{
         }
     public function queryVaultForShippingRecords($transactionData, $callBackSuccess, $callBackFailure) {
         $apiRequest = $this->apiUrl . "VaultQueryShippingRecord";
-        $this->performRequest($transactionData, $apiRequest, $callBackSuccess, $callBackFailure);
-        if ($this->status >= 500 && $this->status <= 599){call_user_func ($callBackFailure);}
-        if ($this->status >= 400 && $this->status <= 499){call_user_func ($callBackFailure);}
-        if ($this->status >= 200 && $this->status <= 299){call_user_func ($callBackSuccess);}
-        }
-    public function generateTokenFromCreditCard($transactionData, $callBackSuccess, $callBackFailure) {
-        $apiRequest = $this->apiUrl . "GenerateTokenFromCreditCard";
-        $this->performRequest($transactionData, $apiRequest, $callBackSuccess, $callBackFailure);
-        if ($this->status >= 500 && $this->status <= 599){call_user_func ($callBackFailure);}
-        if ($this->status >= 400 && $this->status <= 499){call_user_func ($callBackFailure);}
-        if ($this->status >= 200 && $this->status <= 299){call_user_func ($callBackSuccess);}
-        }
-    public function getCreditCardFromToken($transactionData, $callBackSuccess, $callBackFailure) {
-        $apiRequest = $this->apiUrl . "GetCreditCardFromToken";
         $this->performRequest($transactionData, $apiRequest, $callBackSuccess, $callBackFailure);
         if ($this->status >= 500 && $this->status <= 599){call_user_func ($callBackFailure);}
         if ($this->status >= 400 && $this->status <= 499){call_user_func ($callBackFailure);}

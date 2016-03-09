@@ -325,18 +325,11 @@ class RestGateway{
         }
 		
 	/*************************************************************************************
-                                        TOKEN METHODS
+                                        MISC METHODS
 	*************************************************************************************/	
 		
-	public function generateTokenFromCreditCard($transactionData, $callBackSuccess, $callBackFailure) {
-        $apiRequest = $this->apiUrl . "GenerateTokenFromCreditCard";
-        $this->performRequest($transactionData, $apiRequest, $callBackSuccess, $callBackFailure);
-		if ($this->status >= 500 && $this->status <= 599){call_user_func ($callBackFailure);}
-        if ($this->status >= 400 && $this->status <= 499){call_user_func ($callBackFailure);}
-        if ($this->status >= 200 && $this->status <= 299){call_user_func ($callBackSuccess);}
-        }
-    public function generateTokenForTransaction($transactionData, $callBackSuccess, $callBackFailure) {
-        $apiRequest = $this->apiUrl . "GenerateTokenForTransaction";
+	public function modifyRecurring($transactionData, $callBackSuccess, $callBackFailure) {
+        $apiRequest = $this->apiUrl . "RecurringModify";
         $this->performRequest($transactionData, $apiRequest, $callBackSuccess, $callBackFailure);
 		if ($this->status >= 500 && $this->status <= 599){call_user_func ($callBackFailure);}
         if ($this->status >= 400 && $this->status <= 499){call_user_func ($callBackFailure);}

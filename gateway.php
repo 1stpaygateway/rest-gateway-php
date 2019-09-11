@@ -386,6 +386,14 @@ class RestGateway{
       if ($this->Status >= 400 && $this->Status <= 499 && isset($callBackFailure)){call_user_func ($callBackFailure);}
       if ($this->Status >= 200 && $this->Status <= 299 && isset($callBackSuccess)){call_user_func ($callBackSuccess);}
     }
+    
+    public function generateTokenFromCreditCard($transactionData, $callBackSuccess = NULL, $callBackFailure = NULL) {
+      $apiRequest = $this->Url . "GenerateTokenFromCreditCard";
+      $this->performRequest($transactionData, $apiRequest, $callBackSuccess, $callBackFailure);
+      if ($this->Status >= 500 && $this->Status <= 599 && isset($callBackFailure)){call_user_func ($callBackFailure);}
+      if ($this->Status >= 400 && $this->Status <= 499 && isset($callBackFailure)){call_user_func ($callBackFailure);}
+      if ($this->Status >= 200 && $this->Status <= 299 && isset($callBackSuccess)){call_user_func ($callBackSuccess);}
+    }
 
          /*************************************************************************************
                                         PROCESSING REQUEST
